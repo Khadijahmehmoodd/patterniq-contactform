@@ -83,7 +83,7 @@ export default async function handler(req, res) {
                 <img
                   src="https://patterniq-contactform.vercel.app/patterniq.svg"
                   alt="PatternIQ"
-                  width="80"
+                  width="50"
                   style="display:inline-block;vertical-align:middle;margin-right:12px;border:0;"
                 />
               </a>
