@@ -47,7 +47,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: "PatternIQ <noreply@patterniq.co.uk>",
-        to: ["info@patterniq.co.uk"],
+        to: ["operations@patterniq.co.uk"],
         reply_to: email,
         subject: `New Website Enquiry - ${fullName}`,
         html: `
