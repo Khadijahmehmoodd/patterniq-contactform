@@ -1,5 +1,5 @@
 // Vercel Serverless Function
-// File location: /api/send-email.js
+// File location: /api/contact-form.js
 
 export default async function handler(req, res) {
   // CORS
@@ -24,8 +24,7 @@ export default async function handler(req, res) {
     // Validation
     if (!fname || !surname || !email || !message) {
       return res.status(400).json({
-        error:
-          "Missing required fields: fname, surname, email, message",
+        error: "Missing required fields: fname, surname, email, message",
       });
     }
 
@@ -48,7 +47,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: "PatternIQ <noreply@patterniq.co.uk>",
-        to: ["info@patterniq.co.uk"], // Change if needed
+        to: ["info@patterniq.co.uk"],
         reply_to: email,
         subject: `New Website Enquiry - ${fullName}`,
         html: `
@@ -75,14 +74,33 @@ export default async function handler(req, res) {
             <hr style="margin:30px 0;border:none;border-top:1px solid #ddd;">
 
             <div style="text-align:left;">
-              <span style="font-size:12px;color:#777;">
+
+              <a
+                href="https://www.patterniq.co.uk"
+                target="_blank"
+                style="display:inline-block;vertical-align:middle;text-decoration:none;"
+              >
+                <img
+                  src="https://patterniq-contactform.vercel.app/patterniq.svg"
+                  alt="PatternIQ"
+                  width="80"
+                  style="display:inline-block;vertical-align:middle;margin-right:12px;border:0;"
+                />
+              </a>
+
+              <span
+                style="display:inline-block;vertical-align:middle;font-size:12px;color:#777;"
+              >
                 This message was sent from the contact form on
-                <a href="https://www.patterniq.co.uk"
-                   target="_blank"
-                   style="color:#777;text-decoration:none;">
+                <a
+                  href="https://www.patterniq.co.uk"
+                  target="_blank"
+                  style="color:#777;text-decoration:none;"
+                >
                   www.patterniq.co.uk
                 </a>
               </span>
+
             </div>
 
           </div>
