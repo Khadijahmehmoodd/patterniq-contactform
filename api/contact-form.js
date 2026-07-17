@@ -54,7 +54,7 @@ export default async function handler(req, res) {
           <div style="font-family:Arial,Helvetica,sans-serif;max-width:1100px;margin:auto;color:#333;line-height:1.5;">
 
             <h2 style="color:#1F4A7C;margin-bottom:25px;">
-              New Contact Form Submission
+              New Contact Form Submission From Pattern IQ Website
             </h2>
 
             <table style="width:100%;border-collapse:collapse;font-size:14px;">
@@ -88,7 +88,7 @@ export default async function handler(req, res) {
                 <td
                   style="width:180px;padding:6px 0;font-weight:bold;vertical-align:top;white-space:nowrap;"
                  >
-                             Message
+                    Message
                    </td>
 
                    <td style="padding:6px 0;vertical-align:top;word-break:break-word;">
