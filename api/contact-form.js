@@ -51,57 +51,92 @@ export default async function handler(req, res) {
         reply_to: email,
         subject: `New Website Enquiry - ${fullName}`,
         html: `
-           <div style="font-family: Arial, Helvetica, sans-serif; max-width:1000px; margin: auto; color:#333;">
+          <div style="font-family:Arial,Helvetica,sans-serif;max-width:700px;margin:auto;color:#333;line-height:1.5;">
 
-            <h2 style="color:#1F4A7C;">New Contact Form Submission</h2>
+            <h2 style="color:#1F4A7C;margin-bottom:25px;">
+              New Contact Form Submission
+            </h2>
 
-            <p><strong>First Name:</strong> ${escapeHtml(fname)}</p>
+            <table style="width:100%;border-collapse:collapse;font-size:14px;">
 
-            <p><strong>Last Name:</strong> ${escapeHtml(surname)}</p>
+              <tr>
+                <td style="padding:6px 0;width:180px;font-weight:bold;">First Name</td>
+                <td style="padding:6px 0;">${escapeHtml(fname)}</td>
+              </tr>
 
-            <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+              <tr>
+                <td style="padding:6px 0;font-weight:bold;">Last Name</td>
+                <td style="padding:6px 0;">${escapeHtml(surname)}</td>
+              </tr>
 
-            ${
-              phone
-                ? `<p><strong>Phone:</strong> ${escapeHtml(phone)}</p>`
-                : ""
-            }
+              <tr>
+                <td style="padding:6px 0;font-weight:bold;">Email</td>
+                <td style="padding:6px 0;">${escapeHtml(email)}</td>
+              </tr>
 
-            <p><strong>Message:</strong></p>
+              ${
+                phone
+                  ? `
+              <tr>
+                <td style="padding:6px 0;font-weight:bold;">Phone</td>
+                <td style="padding:6px 0;">${escapeHtml(phone)}</td>
+              </tr>
+              `
+                  : ""
+              }
 
-            <p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>
+              // <tr>
+              //   <td style="padding:6px 0;font-weight:bold;vertical-align:top;">Message</td>
+              //   <td style="padding:6px 0;">
+              //     ${escapeHtml(message).replace(/\n/g, "<br>")}
+              //   </td>
+              // </tr>
+              // <tr>
+                <td
+                   style="width:180px;padding:6px 0;font-weight:bold;vertical-align:top;white-space:nowrap;"
+                  >
+                  Message
+               </td>
 
-            <hr style="margin:30px 0;border:none;border-top:1px solid #ddd;">
+               <td style="padding:6px 0;vertical-align:top;word-break:break-word;">
+                ${escapeHtml(message).replace(/\n/g, "<br>")}
+               </td>
+              </tr>
+            </table>
 
-            <div style="text-align:left;">
+            <hr style="margin:24px 0;border:none;border-top:1px solid #ddd;">
 
-              <a
-                href="https://www.patterniq.co.uk"
-                target="_blank"
-                style="display:inline-block;vertical-align:middle;text-decoration:none;"
-              >
-                <img
-                  src="https://patterniq-contactform.vercel.app/patterniq.svg"
-                  alt="PatternIQ"
-                  width="50"
-                  style="display:inline-block;vertical-align:middle;margin-right:12px;border:0;"
-                />
-              </a>
+            <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+              <tr>
 
-              <span
-                style="display:inline-block;vertical-align:middle;font-size:12px;color:#777;"
-              >
-                This message was sent from the contact form on
-                <a
-                  href="https://www.patterniq.co.uk"
-                  target="_blank"
-                  style="color:#777;text-decoration:none;"
-                >
-                  www.patterniq.co.uk
-                </a>
-              </span>
+                <td style="vertical-align:middle;padding-right:10px;">
+                  <a
+                    href="https://www.patterniq.co.uk"
+                    target="_blank"
+                    style="text-decoration:none;"
+                  >
+                    <img
+                      src="https://patterniq-contactform.vercel.app/patterniq.svg"
+                      alt="PatternIQ"
+                      width="25"
+                      style="display:block;border:0;"
+                    />
+                  </a>
+                </td>
 
-            </div>
+                <td style="vertical-align:middle;font-size:12px;color:#777;">
+                  This message was sent from the contact form on
+                  <a
+                    href="https://www.patterniq.co.uk"
+                    target="_blank"
+                    style="color:#777;text-decoration:none;"
+                  >
+                    www.patterniq.co.uk
+                  </a>
+                </td>
+
+              </tr>
+            </table>
 
           </div>
         `,
