@@ -51,10 +51,10 @@ export default async function handler(req, res) {
         reply_to: email,
         subject: `New Website Enquiry - ${fullName}`,
         html: `
-          <div style="font-family:Arial,Helvetica,sans-serif;max-width:1100px;margin:auto;color:#333;line-height:1.5;">
+          <div style="font-family:Arial,Helvetica,sans-serif;max-width:1000px;margin:auto;color:#333;line-height:1.5;">
 
             <h2 style="color:#1F4A7C;margin-bottom:25px;">
-              New Contact Form Submission From Pattern IQ Website
+              New Contact Form Submission
             </h2>
 
             <table style="width:100%;border-collapse:collapse;font-size:14px;">
