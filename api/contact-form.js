@@ -51,7 +51,7 @@ export default async function handler(req, res) {
         reply_to: email,
         subject: `New Website Enquiry - ${fullName}`,
         html: `
-          <div style="font-family:Arial,Helvetica,sans-serif;max-width:700px;margin:auto;color:#333;line-height:1.5;">
+          <div style="font-family:Arial,Helvetica,sans-serif;max-width:1100px;margin:auto;color:#333;line-height:1.5;">
 
             <h2 style="color:#1F4A7C;margin-bottom:25px;">
               New Contact Form Submission
@@ -84,23 +84,16 @@ export default async function handler(req, res) {
               `
                   : ""
               }
-
-              // <tr>
-              //   <td style="padding:6px 0;font-weight:bold;vertical-align:top;">Message</td>
-              //   <td style="padding:6px 0;">
-              //     ${escapeHtml(message).replace(/\n/g, "<br>")}
-              //   </td>
-              // </tr>
-              // <tr>
+               <tr>
                 <td
-                   style="width:180px;padding:6px 0;font-weight:bold;vertical-align:top;white-space:nowrap;"
-                  >
-                  Message
-               </td>
+                  style="width:180px;padding:6px 0;font-weight:bold;vertical-align:top;white-space:nowrap;"
+                 >
+                             Message
+                   </td>
 
-               <td style="padding:6px 0;vertical-align:top;word-break:break-word;">
-                ${escapeHtml(message).replace(/\n/g, "<br>")}
-               </td>
+                   <td style="padding:6px 0;vertical-align:top;word-break:break-word;">
+                   ${escapeHtml(message).replace(/\n/g, "<br>")}
+                   </td>
               </tr>
             </table>
 
